@@ -67,17 +67,17 @@ public class Exam1 {
 			e.printStackTrace();
 		}
 		
-//		try{
-//            FileInputStream readData = new FileInputStream(file);
-//            ObjectInputStream readStream = new ObjectInputStream(readData);
-//
-//            ArrayList lits = (ArrayList<Book>) readStream.readObject();
-//            readStream.close();
-//
-//            System.out.println(lits.toString());
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
+		try{
+            FileInputStream readData = new FileInputStream(file);
+            ObjectInputStream readStream = new ObjectInputStream(readData);
+
+            ArrayList lits = (ArrayList<Book>) readStream.readObject();
+            readStream.close();
+
+            System.out.println(lits.toString());
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
 	}
 }

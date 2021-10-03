@@ -1,9 +1,11 @@
 package exam1Topic1;
 
+import java.io.Serializable;
+
 //Write a program to accept book details(code, title, author, price) from command line
 //a. Write book details into character file "Book.txt" in appending mode
 //b. After writing file, read the file and show on the screen.
-public class Book {
+public class Book implements Serializable {
 	private int code;
 	private String titile;
 	private String author;
