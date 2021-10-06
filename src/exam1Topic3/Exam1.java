@@ -19,6 +19,7 @@ public class Exam1 {
 				name = sc.nextLine();
 				System.out.print("So dien thoai: ");
 				phone = sc.nextInt();
+				sc.nextLine();
 				if (name.equalsIgnoreCase("x")) {
 					break;
 				}else {

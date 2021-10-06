@@ -18,7 +18,7 @@ public class Exam2 {
 				name = sc.nextLine();
 				System.out.print("So dien thoai: ");
 				phone = sc.nextInt();
-				if (name.equalsIgnoreCase("000")) {
+				if (name.equalsIgnoreCase("000") || phone == 000) {
 					break;
 				} else {
 					list.put(name, phone);

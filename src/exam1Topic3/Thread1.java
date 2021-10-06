@@ -9,7 +9,7 @@ public class Thread1 extends Thread {
 				if (i % 2 == 0) {
 					System.out.println(i);
 				}
-				Thread.sleep(100);
+				Thread.sleep(200);
 			}
 
 		} catch (Exception e) {

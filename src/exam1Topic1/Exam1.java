@@ -3,6 +3,7 @@ package exam1Topic1;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -44,20 +45,25 @@ public class Exam1 {
 			} else {
 				if (file.canWrite()) {
 					System.out.println("Được phép ghi");
-					FileWriter m = new FileWriter(file, true);
-					for (Book book : list) {
-						m.write(book + System.lineSeparator());
-					}
-					m.close();
 					try {
-						FileOutputStream fos = new FileOutputStream(file);
-						ObjectOutputStream oos = new ObjectOutputStream(fos);
-						oos.writeObject(list);
-						oos.close();
-
+						FileWriter m = new FileWriter(file, true);
+						for (Book book : list) {
+							m.write(book.toString());
+						}
+						m.close();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
+					
+//					try {
+//						FileOutputStream fos = new FileOutputStream(file);
+//						ObjectOutputStream oos = new ObjectOutputStream(fos);
+//						oos.writeObject(list);
+//						oos.close();
+//
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
 
 				} else {
 					System.out.println("Không được phép ghi");
@@ -67,17 +73,27 @@ public class Exam1 {
 			e.printStackTrace();
 		}
 		
-		try{
-            FileInputStream readData = new FileInputStream(file);
-            ObjectInputStream readStream = new ObjectInputStream(readData);
-
-            ArrayList lits = (ArrayList<Book>) readStream.readObject();
-            readStream.close();
-
-            System.out.println(lits.toString());
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+		try {
+			FileReader r = new FileReader(file);
+			for(Book book:list) {
+				System.out.println(list);
+			}
+            r.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+//		try{
+//            FileInputStream readData = new FileInputStream(file);
+//            ObjectInputStream readStream = new ObjectInputStream(readData);
+//
+//            ArrayList lits = (ArrayList<Book>) readStream.readObject();
+//            readStream.close();
+//
+//            System.out.println(lits.toString());
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 	}
 }
