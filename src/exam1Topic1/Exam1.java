@@ -43,6 +43,7 @@ public class Exam1 {
 					throw new Exception("Có lỗi xảy ra");
 				}
 			} else {
+				//kiểm tra ghi file
 				if (file.canWrite()) {
 					System.out.println("Được phép ghi");
 					try {
@@ -68,20 +69,34 @@ public class Exam1 {
 				} else {
 					System.out.println("Không được phép ghi");
 				}
+				//kiem tra doc file
+				if(file.canRead()) {
+					//cách 1: Đọc toàn bộ
+					Scanner in = new Scanner(file);
+					while(in.hasNextLine()) {
+						String str = in.nextLine();
+						System.out.println(str);
+					}
+					in.close();
+					//cách 2:đọc thông tin vừa nhập
+//					try {
+//						FileReader r = new FileReader(file);
+//						for(Book book:list) {
+//							System.out.println(list);
+//						}
+//			            r.close();
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
+					
+				}else {
+					System.out.println("Không được phép đọc");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try {
-			FileReader r = new FileReader(file);
-			for(Book book:list) {
-				System.out.println(list);
-			}
-            r.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 //		try{
 //            FileInputStream readData = new FileInputStream(file);
